@@ -6,8 +6,8 @@ ERRORS=0
 WARNINGS=0
 
 debug() { [[ "$DEBUG" == "true" ]] && echo "  [debug] $*" || true; }
-error() { echo "  ❌ $*"; ((ERRORS++)); }
-warn()  { echo "  ⚠️  $*"; ((WARNINGS++)); }
+error() { echo "  ❌ $*"; ERRORS=$((ERRORS + 1)); }
+warn()  { echo "  ⚠️  $*"; WARNINGS=$((WARNINGS + 1)); }
 pass()  { echo "  ✅ $*"; }
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -62,7 +62,7 @@ SKILL_COUNT=0
 for skill_dir in "$SKILLS_DIR"/*/; do
   [[ -d "$skill_dir" ]] || continue
   dirname=$(basename "$skill_dir")
-  ((SKILL_COUNT++))
+  SKILL_COUNT=$((SKILL_COUNT + 1))
   echo ""
   echo "  ── $dirname ──"
 
