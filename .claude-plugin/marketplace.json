@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "name": "skillz",
+      "description": "Skills for coding agent harness engineering and common dev workflows.",
+      "source": {
+        "source": "relative",
+        "path": ".."
+      }
+    }
+  ]
+}
