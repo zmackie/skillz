@@ -1,0 +1,10 @@
+{
+  "name": "skillz",
+  "version": "0.1.0",
+  "description": "A collection of Claude Code skills for common dev workflows",
+  "author": {
+    "name": "zander"
+  },
+  "license": "MIT",
+  "skills": "./skills/"
+}

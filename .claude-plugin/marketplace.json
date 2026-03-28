@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    {
+      "name": "skillz",
+      "description": "Claude Code skills for common dev workflows",
+      "source": {
+        "source": "relative",
+        "path": ".."
+      }
+    }
+  ]
+}
