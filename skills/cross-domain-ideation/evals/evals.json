@@ -1,0 +1,23 @@
+{
+  "skill_name": "cross-domain-ideation",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I need fresh ideas for a conference talk on cloud security monitoring — something that'll make people think differently about the problem",
+      "expected_output": "3+ novel ideas with explicit cross-domain mappings, evaluation ratings, and an Obsidian note saved to work/ideation/",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "We're redesigning our alert triage pipeline and I'm stuck thinking in the same patterns. Help me brainstorm novel approaches",
+      "expected_output": "3+ creative approaches to alert triage drawn from distant domains, with structural mappings and practical application",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want to write a thought piece about the future of vulnerability management. Give me some unconventional angles",
+      "expected_output": "3+ thought-provoking angles for vulnerability management, each from a different distant domain, with clear analogical reasoning",
+      "files": []
+    }
+  ]
+}
