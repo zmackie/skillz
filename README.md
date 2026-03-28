@@ -1,6 +1,6 @@
 # skillz
 
-A Claude Code plugin with skills for **harness engineering** — configuring, optimizing, and verifying coding agent workflows — plus general dev workflow skills.
+A Claude Code plugin with skills for **harness engineering** — configuring, optimizing, and verifying coding agent workflows — plus creativity and general dev workflow skills.
 
 Works with Claude Code, Codex, Cursor, Windsurf, Copilot, and custom agent systems.
 
@@ -23,6 +23,14 @@ Start with `harness-audit` to assess your current setup, then use the targeted s
 | `agent-legibility` | Optimize a codebase for agent readability and navigation |
 | `verification-harness` | Set up back-pressure: hooks, linters, tests, CI checks |
 | `multi-agent-design` | Design multi-agent workflows (planner/generator/evaluator patterns) |
+
+## Creativity & Research Skills
+
+| Skill | What it does |
+|---|---|
+| `idea-garden` | Genetic-algorithm-inspired workflow for prototyping ideas through vapor → fermenting → liquid → frozen states |
+| `vibe-research` | AI-accelerated research workflow for producing polished written artifacts through multi-agent review loops |
+| `cross-domain-ideation` | Generate novel ideas using cross-domain analogical mapping |
 
 ## General Dev Skills
 
