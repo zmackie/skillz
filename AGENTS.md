@@ -25,3 +25,11 @@ description: What it does and when to use it (under 250 chars)
 ```
 
 Optional fields: `disable-model-invocation`, `user-invocable`, `allowed-tools`, `argument-hint`
+
+### Versioning
+Version lives in `.claude-plugin/plugin.json`. To release:
+
+1. Update `version` in `plugin.json`
+2. Commit: `git commit -am "v0.X.Y"`
+3. Tag: `git tag v0.X.Y`
+4. Push: `git push origin main --tags`
