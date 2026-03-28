@@ -2,7 +2,7 @@
   "plugins": [
     {
       "name": "skillz",
-      "description": "Claude Code skills for common dev workflows",
+      "description": "Skills for coding agent harness engineering and common dev workflows.",
       "source": {
         "source": "relative",
         "path": ".."

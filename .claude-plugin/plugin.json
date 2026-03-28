@@ -1,7 +1,7 @@
 {
   "name": "skillz",
-  "version": "0.1.0",
-  "description": "A collection of Claude Code skills for common dev workflows",
+  "version": "0.2.0",
+  "description": "Skills for coding agent harness engineering: instruction authoring, context management, verification, codebase legibility, and multi-agent design. Plus general dev workflow skills.",
   "author": {
     "name": "zander"
   },

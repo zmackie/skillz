@@ -1,6 +1,8 @@
 # skillz
 
-A Claude Code plugin containing reusable skills for common dev workflows.
+A Claude Code plugin with skills for **harness engineering** — configuring, optimizing, and verifying coding agent workflows — plus general dev workflow skills.
+
+Works with Claude Code, Codex, Cursor, Windsurf, Copilot, and custom agent systems.
 
 ## Install
 
@@ -9,9 +11,22 @@ A Claude Code plugin containing reusable skills for common dev workflows.
 /plugin install skillz@zander-skillz
 ```
 
-## Skills
+## Harness Engineering Skills
 
-| Skill | Description |
+Start with `harness-audit` to assess your current setup, then use the targeted skills it recommends.
+
+| Skill | What it does |
+|---|---|
+| `harness-audit` | Audit an agent harness and surface problems with prioritized fixes |
+| `write-agent-instructions` | Write or improve CLAUDE.md, AGENTS.md, .cursorrules, etc. |
+| `context-architecture` | Design context management: sub-agents, resets, progressive disclosure |
+| `agent-legibility` | Optimize a codebase for agent readability and navigation |
+| `verification-harness` | Set up back-pressure: hooks, linters, tests, CI checks |
+| `multi-agent-design` | Design multi-agent workflows (planner/generator/evaluator patterns) |
+
+## General Dev Skills
+
+| Skill | What it does |
 |---|---|
 | `code-review` | Structured code review (security, performance, correctness, readability) |
 | `commit-message` | Generate conventional-commit messages from staged diffs |
@@ -20,15 +35,15 @@ A Claude Code plugin containing reusable skills for common dev workflows.
 
 ## Usage
 
-Skills are invoked as `/skillz:<skill-name>`:
+Invoke skills as `/skillz:<skill-name>`:
 
 ```
+/skillz:harness-audit
+/skillz:write-agent-instructions
 /skillz:code-review
-/skillz:commit-message
-/skillz:python-uv
 ```
 
-Some skills (like `python-uv` and `openrouter-api`) are also auto-invoked by Claude when relevant to your task.
+Most skills also auto-trigger when Claude detects a relevant task.
 
 ## Adding a Skill
 
@@ -42,3 +57,5 @@ description: What it does and when to use it
 
 Instructions for Claude when this skill is active.
 ```
+
+See [meta-skill.md](meta-skill.md) for writing guidelines.
