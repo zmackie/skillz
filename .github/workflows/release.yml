@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate before release
+        run: bash scripts/validate-skills.sh
+
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify tag matches plugin.json
+        run: |
+          PLUGIN_VERSION=$(python3 -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [[ "$PLUGIN_VERSION" != "$TAG_VERSION" ]]; then
+            echo "❌ Tag v$TAG_VERSION does not match plugin.json version $PLUGIN_VERSION"
+            exit 1
+          fi
+          echo "✅ Versions match: $PLUGIN_VERSION"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          name: "v${{ steps.version.outputs.version }}"

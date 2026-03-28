@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate skills & plugin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate skills and plugin manifest
+        run: bash scripts/validate-skills.sh
+
+  markdown-lint:
+    name: Lint markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for trailing whitespace in SKILL.md files
+        run: |
+          ERRORS=0
+          for f in skills/*/SKILL.md; do
+            if grep -nP '\s+$' "$f"; then
+              echo "❌ Trailing whitespace in $f"
+              ((ERRORS++))
+            fi
+          done
+          if (( ERRORS > 0 )); then
+            echo "FAILED: $ERRORS file(s) with trailing whitespace"
+            exit 1
+          fi
+          echo "✅ No trailing whitespace"
+
+      - name: Check SKILL.md files end with newline
+        run: |
+          ERRORS=0
+          for f in skills/*/SKILL.md; do
+            if [[ -n "$(tail -c 1 "$f")" ]]; then
+              echo "❌ $f does not end with a newline"
+              ((ERRORS++))
+            fi
+          done
+          if (( ERRORS > 0 )); then
+            echo "FAILED: $ERRORS file(s) missing final newline"
+            exit 1
+          fi
+          echo "✅ All files end with newline"
