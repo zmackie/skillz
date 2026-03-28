@@ -28,7 +28,7 @@ jobs:
           for f in skills/*/SKILL.md; do
             if grep -nP '\s+$' "$f"; then
               echo "❌ Trailing whitespace in $f"
-              ((ERRORS++))
+              ERRORS=$((ERRORS + 1))
             fi
           done
           if (( ERRORS > 0 )); then
@@ -43,7 +43,7 @@ jobs:
           for f in skills/*/SKILL.md; do
             if [[ -n "$(tail -c 1 "$f")" ]]; then
               echo "❌ $f does not end with a newline"
-              ((ERRORS++))
+              ERRORS=$((ERRORS + 1))
             fi
           done
           if (( ERRORS > 0 )); then
