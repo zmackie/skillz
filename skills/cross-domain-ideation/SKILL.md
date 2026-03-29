@@ -132,11 +132,11 @@ After presenting the rated ideas, offer:
 4. **Critique**: Adversarially challenge the top idea — what could go wrong? What are the
    weakest assumptions?
 
-### Step 6: Save to Obsidian
+### Step 6: Save Results
 
-After the session, save a structured note to the user's Obsidian vault.
+After the session, save a structured note.
 
-**File path**: `work/ideation/YYYY-MM-DD-<slugified-target>.md`
+**File path**: `ideation/YYYY-MM-DD-<slugified-target>.md`
 
 **Note format**:
 ```markdown
@@ -171,7 +171,7 @@ tags: [ideation, cross-domain, <target-domain>]
 - <Any refinements, combinations, or follow-up directions discussed>
 ```
 
-Create the `work/ideation/` directory if it doesn't exist.
+Create the `ideation/` directory if it doesn't exist.
 
 ## Important Principles
 

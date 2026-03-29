@@ -17,7 +17,20 @@ description: >
 A genetic algorithm for ideas. You feed in raw concepts, the system autonomously prototypes
 them as runnable code, evaluates fitness, and the best ideas survive for further investment.
 
-The backlog lives at `work/garden/BACKLOG.md`. Artifacts go to `work/garden/artifacts/<slug>/`.
+The backlog lives at `garden/BACKLOG.md`. Artifacts go to `garden/artifacts/<slug>/`.
+All paths are relative to your working directory.
+
+## Setup
+
+Create the garden directory in your project root:
+
+```
+garden/
+  BACKLOG.md     # Your idea backlog (see references/backlog-format.md)
+  artifacts/     # Auto-created per idea
+```
+
+To use a different location, set environment variables `IDEA_GARDEN_BACKLOG` and `IDEA_GARDEN_ARTIFACTS`.
 
 ## Commands
 
@@ -53,16 +66,16 @@ Parse the output (tab-separated): `slug, status, priority, attempts, fitness, la
 
 ### Step 2: Read the Idea
 
-Find the idea's section in `work/garden/BACKLOG.md` by searching for its `## Title` heading.
+Find the idea's section in `garden/BACKLOG.md` by searching for its `## Title` heading.
 Read the description and **Prototype spec** section carefully — this is what you're building.
 
 ### Step 3: Create Artifact Directory
 
 ```
-work/garden/artifacts/<slug>/attempt-<N>/
+garden/artifacts/<slug>/attempt-<N>/
 ```
 
-Where N = attempts + 1. Also create a lockfile at `work/garden/artifacts/<slug>/.lock`.
+Where N = attempts + 1. Also create a lockfile at `garden/artifacts/<slug>/.lock`.
 
 ### Step 4: Write the Prototype
 
@@ -119,7 +132,7 @@ but the approach was clearly right might deserve a 0.3 with a note about what to
 
 ### Step 7: Update Backlog
 
-Edit `work/garden/BACKLOG.md` to update the idea's metadata block:
+Edit `garden/BACKLOG.md` to update the idea's metadata block:
 - Increment `attempts`
 - Update `fitness` with the new score
 - Update `last_tried` to today's date (YYYY-MM-DD)
@@ -139,18 +152,18 @@ Append to the idea's **Attempt Log** section:
 - **Approach**: <what you tried>
 - **Result**: <what happened — ran/crashed/partial>
 - **Fitness**: X.X
-- **Artifact**: `work/garden/artifacts/<slug>/attempt-N/<filename>`
+- **Artifact**: `garden/artifacts/<slug>/attempt-N/<filename>`
 - **Run**: `<command to execute it>`
 - **Insight**: <what was learned, especially if evaporating>
 ```
 
 ### Step 8: Remove Lock
 
-Delete `work/garden/artifacts/<slug>/.lock`.
+Delete `garden/artifacts/<slug>/.lock`.
 
 ### Step 9: Report (Optional)
 
-If fitness ≥ 0.4, write an Obsidian note to `work/garden/YYYY-MM-DD-<slug>.md`:
+If fitness ≥ 0.4, write a report to `garden/YYYY-MM-DD-<slug>.md`:
 
 ```markdown
 ---
@@ -164,7 +177,7 @@ fitness: <score>
 
 ## Attempt N
 **Approach**: <description>
-**Artifact**: `work/garden/artifacts/<slug>/attempt-N/<file>`
+**Artifact**: `garden/artifacts/<slug>/attempt-N/<file>`
 **Run**: `<command>`
 
 ### Output
@@ -177,7 +190,7 @@ fitness: <score>
 <what to try next, or why this is done>
 ```
 
-If fitness ≥ 0.6 (reached liquid): also append a one-liner to `work/Work log.md`.
+If fitness ≥ 0.6 (reached liquid): log the result to the console and note it in the report.
 
 ## Add Idea
 
@@ -185,14 +198,14 @@ When the user wants to add an idea to the garden:
 
 1. Ask for: title, brief description, and what a prototype would look like
 2. Assign default priority 3 (or ask if they have a preference)
-3. Append a new `## Title` section to `work/garden/BACKLOG.md` following the format
+3. Append a new `## Title` section to `garden/BACKLOG.md` following the format
    in `references/backlog-format.md`
 4. Confirm: "Added '<title>' to the garden as vapor (priority N). It'll be eligible
    for the next garden run."
 
 ## Show Status
 
-Read and parse `work/garden/BACKLOG.md` using `scripts/parse_backlog.sh`. Present a summary:
+Read and parse `garden/BACKLOG.md` using `scripts/parse_backlog.sh`. Present a summary:
 
 ```
 Garden Status:
@@ -218,7 +231,7 @@ Create an hourly cron job:
 
 ```
 CronCreate: cron "7 * * * *", recurring true
-prompt: "Run the idea garden: read the skill at .claude/skills/idea-garden/SKILL.md, then execute The Loop (pick an idea from work/garden/BACKLOG.md, prototype it, evaluate, update backlog)."
+prompt: "Run the idea garden: read the skill at .claude/skills/idea-garden/SKILL.md, then execute The Loop (pick an idea from garden/BACKLOG.md, prototype it, evaluate, update backlog)."
 ```
 
 Tell the user: "Garden is running. It'll pick and prototype an idea every hour at :07.

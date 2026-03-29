@@ -4,7 +4,7 @@
 # Returns a partial fitness score (0.0-0.4) and pass/fail details.
 #
 # Usage: evaluate_prototype.sh <artifact-dir> <run-command>
-# Example: evaluate_prototype.sh work/garden/artifacts/my-idea/attempt-1 "uv run script.py"
+# Example: evaluate_prototype.sh garden/artifacts/my-idea/attempt-1 "uv run script.py"
 #
 # Output: JSON-like summary to stdout
 

@@ -20,6 +20,19 @@ Examples: design docs, RFCs, investigation reports, security analysis, competiti
 
 For quick one-pagers or informal notes, this is overkill — just write directly.
 
+## Output Structure
+
+Documents and workspaces are created relative to your working directory:
+
+```
+research/
+  <slug>.md              # The document
+  <slug>-workspace/      # Review artifacts
+    reviews/
+    plan.md
+    verification.md
+```
+
 ## The Workflow
 
 There are 5 phases. The human is consulted at the end of phases 0, 1, and 3. Phases 2 and 4 can run with minimal supervision.
@@ -35,7 +48,7 @@ There are 5 phases. The human is consulted at the end of phases 0, 1, and 3. Pha
    - What's the scope? (What's in, what's explicitly out?)
 
 2. **Explore prior art** — search for existing work:
-   - Check the Obsidian vault (`work/`) for related notes
+   - Check the working directory for related notes or prior research
    - Use web search for public prior art, related docs, existing solutions
    - If Codex MCP is available, use it to sanity-check the framing
 
@@ -53,7 +66,7 @@ There are 5 phases. The human is consulted at the end of phases 0, 1, and 3. Pha
 
 **Goal**: A complete (rough) document with all sections filled in.
 
-1. **Create the output file**: `work/research/<slug>.md` where `<slug>` is a kebab-case version of the title.
+1. **Create the output file**: `research/<slug>.md` where `<slug>` is a kebab-case version of the title.
 
 2. **Write the full draft** following the approved outline. Every section should have real content, not placeholders. It's fine to be rough — the review loop will polish it.
 
@@ -72,12 +85,12 @@ There are 5 phases. The human is consulted at the end of phases 0, 1, and 3. Pha
 4. **Commit the draft** to a branch:
    ```bash
    git checkout -b research/<slug>
-   git add work/research/<slug>.md
+   git add research/<slug>.md
    git commit -m "research(<slug>): initial draft"
    ```
 
 5. **STOP and notify the user**:
-   > "First draft is at `work/research/<slug>.md`. I recommend skimming it before I start the review loop — any major directional issues are cheapest to fix now."
+   > "First draft is at `research/<slug>.md`. I recommend skimming it before I start the review loop — any major directional issues are cheapest to fix now."
 
 ### Phase 2: Multi-Agent Review Loop
 
@@ -138,7 +151,7 @@ After 3 rounds (or when reviews stop surfacing substantive issues), move to Phas
 
 2. **Research each flag**:
    - Use web search for evidence, data, examples
-   - Search internal docs/vault for supporting material
+   - Search internal docs for supporting material
    - If technical claims need verification, write and run code to check them
 
 3. **Incorporate findings** into the document.
@@ -158,7 +171,7 @@ Go through every factual claim in the document:
 - [ ] **Data/numbers**: Are statistics, metrics, or measurements sourced and current?
 - [ ] **Technical claims**: Can code examples run? Are API references correct?
 - [ ] **Attributions**: Are ideas properly attributed to their sources?
-- [ ] **Internal references**: Do `[[wikilinks]]` point to existing vault notes?
+- [ ] **Internal references**: Do internal links point to existing documents?
 
 Log any issues found and fix them. If something can't be verified, flag it with a `<!-- TODO: verify -->` comment.
 
@@ -177,12 +190,11 @@ Log any issues found and fix them. If something can't be verified, flag it with 
 
 ## Output Location
 
-All documents go to `work/research/<slug>.md` in the Obsidian vault.
+All documents go to `research/<slug>.md` relative to your working directory.
 
-After finalizing, append to `work/Work log.md`:
-```markdown
-# MM/DD
-- [[research/<slug>|Title]] — [one-line description]
+After finalizing, log completion to the console:
+```
+Completed: research/<slug>.md — [one-line description]
 ```
 
 ## Key Principles
@@ -201,7 +213,7 @@ These aren't rules for the sake of rules — they come from hard-won experience 
 
 ## Workspace
 
-Create a workspace for review artifacts at `work/research/<slug>-workspace/` containing:
+Create a workspace for review artifacts at `research/<slug>-workspace/` containing:
 - `reviews/` — all review reports by round
 - `plan.md` — the approved outline from Phase 0
 - `verification.md` — the verification checklist results

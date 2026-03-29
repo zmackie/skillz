@@ -5,7 +5,7 @@
 #
 # Usage: parse_backlog.sh [path-to-BACKLOG.md]
 
-BACKLOG="${1:-/Users/zander.mackie/go/src/github.com/DataDog/obsidian/work/garden/BACKLOG.md}"
+BACKLOG="${1:-${IDEA_GARDEN_BACKLOG:-garden/BACKLOG.md}}"
 
 if [[ ! -f "$BACKLOG" ]]; then
     echo "ERROR: BACKLOG.md not found at $BACKLOG" >&2

@@ -4,7 +4,7 @@
     {
       "id": 0,
       "prompt": "I need fresh ideas for a conference talk on cloud security monitoring — something that'll make people think differently about the problem",
-      "expected_output": "3+ novel ideas with explicit cross-domain mappings, evaluation ratings, and an Obsidian note saved to work/ideation/",
+      "expected_output": "3+ novel ideas with explicit cross-domain mappings, evaluation ratings, and a note saved to ideation/",
       "files": []
     },
     {
