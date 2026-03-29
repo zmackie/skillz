@@ -5,6 +5,6 @@
   "author": {
     "name": "zander"
   },
-  "license": "MIT",
-  "skills": "./skills/"
+  "repository": "https://github.com/zmackie/skillz",
+  "license": "MIT"
 }

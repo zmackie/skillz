@@ -7,8 +7,8 @@ Works with Claude Code, Codex, Cursor, Windsurf, Copilot, and custom agent syste
 ## Install
 
 ```
-/plugin marketplace add zander/skillz
-/plugin install skillz@zander-skillz
+/plugin marketplace add zmackie/skillz
+/plugin install skillz@zmackie-skillz
 ```
 
 ## Harness Engineering Skills

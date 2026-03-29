@@ -1,12 +1,16 @@
 {
+  "name": "zmackie-skillz",
+  "metadata": {
+    "description": "Skills for coding agent harness engineering and common dev workflows."
+  },
+  "owner": {
+    "name": "zmackie"
+  },
   "plugins": [
     {
       "name": "skillz",
-      "description": "Skills for coding agent harness engineering and common dev workflows.",
-      "source": {
-        "source": "relative",
-        "path": ".."
-      }
+      "source": "./",
+      "description": "Skills for coding agent harness engineering: instruction authoring, context management, verification, codebase legibility, and multi-agent design. Plus general dev workflow skills."
     }
   ]
 }
