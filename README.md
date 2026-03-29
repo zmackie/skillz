@@ -32,6 +32,12 @@ Start with `harness-audit` to assess your current setup, then use the targeted s
 | `vibe-research` | AI-accelerated research workflow for producing polished written artifacts through multi-agent review loops |
 | `cross-domain-ideation` | Generate novel ideas using cross-domain analogical mapping |
 
+## Security Skills
+
+| Skill | What it does |
+|---|---|
+| `vuln-research` | LLM-assisted vulnerability research: threat modeling, slice-based auditing, adversarial prompting, and finding validation |
+
 ## General Dev Skills
 
 | Skill | What it does |

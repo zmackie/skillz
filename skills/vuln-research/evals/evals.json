@@ -1,0 +1,46 @@
+{
+  "skill_name": "vuln-research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to do a security audit of the HonoJS web framework. Help me find vulnerabilities in it.",
+      "expected_output": "Should produce a threat model, identify attack surfaces, define audit slices, and begin systematic analysis with adversarial prompting techniques. Should NOT dump a generic checklist or try to audit everything at once.",
+      "files": [],
+      "assertions": [
+        {"id": "threat-model-present", "text": "Output includes a structured threat model with explicit attacker model, entry points, and trust boundaries"},
+        {"id": "slices-defined", "text": "Audit is decomposed into specific, narrow slices (not broad phases)"},
+        {"id": "adversarial-prompts", "text": "Output includes concrete adversarial prompts using techniques like false anchoring or invariant decomposition"},
+        {"id": "bug-classes-specific", "text": "Priority bug classes are specific and tied to the target"},
+        {"id": "finding-has-poc", "text": "Sample finding includes a concrete proof of concept"},
+        {"id": "no-generic-checklist", "text": "Output is tailored to HonoJS, not a generic OWASP checklist"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's a git diff from a security patch to a Node.js HTTP library. Can you figure out what vulnerability it fixes and whether it was exploitable before the patch?",
+      "expected_output": "Should identify the root cause (proxy header trust without trust proxy check), provide exploitation scenario, and include a PoC.",
+      "files": [],
+      "assertions": [
+        {"id": "root-cause-identified", "text": "Correctly identifies the root cause: proxy headers trusted without 'trust proxy' check"},
+        {"id": "exploitation-scenario", "text": "Describes concrete exploitation (host header poisoning, cache poisoning, SSRF)"},
+        {"id": "poc-present", "text": "Includes a proof of concept"},
+        {"id": "severity-justified", "text": "Severity references actual impact and prerequisites"},
+        {"id": "uses-patch-diff-approach", "text": "Follows patch diffing methodology, not generic review"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I found this Express.js middleware that handles file uploads. Is it vulnerable to path traversal?",
+      "expected_output": "Should identify userId param as unsanitized path traversal vector, provide concrete exploit inputs, note the mkdir risk.",
+      "files": [],
+      "assertions": [
+        {"id": "userid-traversal", "text": "Identifies unsanitized req.params.userId as path traversal vector"},
+        {"id": "download-endpoint-vuln", "text": "Identifies GET endpoint vulnerability via parameter injection"},
+        {"id": "concrete-exploit-input", "text": "Provides specific malicious input, not just a description"},
+        {"id": "upload-mkdir-risk", "text": "Notes fs.mkdirSync with traversal userId creates directories outside UPLOAD_DIR"},
+        {"id": "sanitization-analysis", "text": "Notes filename is sanitized but userId has no sanitization"},
+        {"id": "adversarial-approach", "text": "Uses adversarial framing rather than hedging"}
+      ]
+    }
+  ]
+}
