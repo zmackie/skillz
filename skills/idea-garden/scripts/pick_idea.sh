@@ -12,9 +12,15 @@
 #            - fitness penalty (0 < fitness < 0.3: -1)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-BACKLOG="${1:-/Users/zander.mackie/go/src/github.com/DataDog/obsidian/work/garden/BACKLOG.md}"
-ARTIFACTS_DIR="/Users/zander.mackie/go/src/github.com/DataDog/obsidian/work/garden/artifacts"
+BACKLOG="${1:-${IDEA_GARDEN_BACKLOG:-garden/BACKLOG.md}}"
+ARTIFACTS_DIR="${IDEA_GARDEN_ARTIFACTS:-garden/artifacts}"
 NOW_EPOCH=$(date +%s)
+
+# Cross-platform date parsing: convert YYYY-MM-DD to epoch seconds
+date_to_epoch() {
+    local d="$1"
+    date -d "$d" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$d" +%s 2>/dev/null || echo 0
+}
 ONE_DAY=86400
 THREE_DAYS=259200
 
@@ -33,7 +39,7 @@ while IFS=$'\t' read -r slug status priority attempts fitness last_tried title; 
 
     # For fermenting ideas, enforce 24h rest period
     if [[ "$status" == "fermenting" && "$last_tried" != "null" && -n "$last_tried" ]]; then
-        tried_epoch=$(date -j -f "%Y-%m-%d" "$last_tried" +%s 2>/dev/null || echo 0)
+        tried_epoch=$(date_to_epoch "$last_tried")
         elapsed=$((NOW_EPOCH - tried_epoch))
         [[ $elapsed -lt $ONE_DAY ]] && continue
     fi
@@ -41,7 +47,7 @@ while IFS=$'\t' read -r slug status priority attempts fitness last_tried title; 
     # Check for lockfile (skip if locked and not stale)
     lockfile="$ARTIFACTS_DIR/$slug/.lock"
     if [[ -f "$lockfile" ]]; then
-        lock_epoch=$(stat -f %m "$lockfile" 2>/dev/null || echo 0)
+        lock_epoch=$(stat -c %Y "$lockfile" 2>/dev/null || stat -f %m "$lockfile" 2>/dev/null || echo 0)
         lock_age=$((NOW_EPOCH - lock_epoch))
         if [[ $lock_age -lt 7200 ]]; then
             continue  # Locked and not stale, skip
@@ -58,7 +64,7 @@ while IFS=$'\t' read -r slug status priority attempts fitness last_tried title; 
 
     # Rest bonus: fermenting ideas rested >3 days get +1
     if [[ "$status" == "fermenting" && "$last_tried" != "null" && -n "$last_tried" ]]; then
-        tried_epoch=$(date -j -f "%Y-%m-%d" "$last_tried" +%s 2>/dev/null || echo 0)
+        tried_epoch=$(date_to_epoch "$last_tried")
         elapsed=$((NOW_EPOCH - tried_epoch))
         [[ $elapsed -gt $THREE_DAYS ]] && weight=$((weight + 1))
     fi

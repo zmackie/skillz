@@ -9,6 +9,8 @@
 
 N=${1:-3}
 EXCLUDE=""
+TMPFILE=$(mktemp)
+trap "rm -f '$TMPFILE'" EXIT
 
 # Parse --exclude flag
 if [[ "$2" == "--exclude" ]]; then
@@ -79,7 +81,7 @@ for entry in "${FILTERED[@]}"; do
     echo "$rand $entry"
 done | sort -n | while read -r _ entry; do
     echo "$entry"
-done > /tmp/cross_domain_shuffled_$$
+done > "$TMPFILE"
 
 # Pick N sources, enforcing one-per-category
 PICKED_CATEGORIES=()
@@ -107,9 +109,7 @@ while IFS= read -r entry; do
             break
         fi
     fi
-done < /tmp/cross_domain_shuffled_$$
-
-rm -f /tmp/cross_domain_shuffled_$$
+done < "$TMPFILE"
 
 # Output
 echo "=== RANDOMLY SELECTED INSPIRATION SOURCES ==="
