@@ -1,6 +1,6 @@
 {
   "name": "skillz",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Skills for coding agent harness engineering: instruction authoring, context management, verification, codebase legibility, and multi-agent design. Plus general dev workflow skills.",
   "author": {
     "name": "zander"
