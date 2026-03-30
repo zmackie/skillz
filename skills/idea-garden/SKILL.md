@@ -1,15 +1,13 @@
 ---
 name: idea-garden
+category: creativity
 description: >
   Genetic-algorithm-inspired workflow for autonomously prototyping ideas from a backlog.
-  Maintains a garden of ideas that transition through states (vapor → fermenting → liquid → frozen).
-  Runs hourly via cron to pick and prototype ideas, or can be triggered manually. Use when the
-  user says "idea garden", "start the garden", "stop the garden", "add to the garden", "try an
-  idea", "try the top idea", "garden status", "prototype something", "what's in the garden",
-  "garden report", "shelve idea", "invest in idea", or wants autonomous background prototyping.
-  Also use when the user adds a new research idea or project concept they want to eventually
-  try out. Even casual mentions like "I should try building X" or "here's an idea" can trigger
-  adding to the garden.
+  Ideas transition through states (vapor → fermenting → liquid → frozen). Runs hourly via
+  cron or manually. Use when the user says "idea garden", "start/stop the garden", "try an
+  idea", "garden status", "prototype something", or wants autonomous background prototyping.
+  Also triggers for casual "I should try building X" or "here's an idea". Part of the
+  creativity workflow — use `cross-domain-ideation` to generate ideas for the backlog.
 ---
 
 # Idea Garden
@@ -264,3 +262,8 @@ is wrong, or a different framing would work. This insight feeds future ideas.
 
 **Song propagation.** When you discover a reusable pattern (a useful API, a visualization
 technique, a data source), note it. Future prototypes benefit from past discoveries.
+
+## Related Skills
+
+- `cross-domain-ideation` — generate novel ideas to feed into the garden backlog
+- `vibe-research` — write up promising prototypes that reach "liquid" status as polished artifacts

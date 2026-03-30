@@ -1,12 +1,11 @@
 ---
 name: vuln-research
+category: security
 description: >
-  LLM-assisted vulnerability research on open-source codebases. Use this skill when the user wants to
-  find security vulnerabilities, audit code for bugs, do vulnerability research, analyze patches for
-  security implications, or perform any kind of security-focused code review. Also use when the user
-  mentions CVEs, exploit development, attack surface analysis, threat modeling for code, or wants to
-  assess whether a codebase has exploitable bugs. This skill synthesizes proven methodology from
-  real-world LLM vuln research that found 50+ CVEs across major open-source projects.
+  LLM-assisted vulnerability research on open-source codebases. Use when the user wants to
+  find security vulnerabilities, audit code for bugs, analyze patches for security implications,
+  or perform security-focused code review. Also triggers for CVEs, exploit development, attack
+  surface analysis, or threat modeling. For lighter-weight review, see `code-review` instead.
 ---
 
 # LLM-Assisted Vulnerability Research
@@ -301,3 +300,8 @@ These patterns were identified across multiple research efforts as actively harm
 
 7. **Not verifying**: Accepting findings at face value without PoC construction.
    Researchers report 50-90% false positive rates in raw LLM output.
+
+## Related Skills
+
+- `code-review` — for lighter-weight review when full vulnerability research isn't needed
+- `verification-harness` — automate the security checks your research identifies

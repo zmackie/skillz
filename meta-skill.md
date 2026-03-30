@@ -57,8 +57,10 @@ Instead of explaining what not to do and why:
 ```yaml
 ---
 name: skill-name
+category: harness-engineering  # or: creativity, security, general-dev
 description: >
-  What this skill does. Use when [triggers]. Do NOT use when [exclusions].
+  What this skill does. Use when [triggers]. Part of the [category] workflow;
+  see `related-skill` for [adjacent capability].
 ---
 ```
 
@@ -78,7 +80,29 @@ One-line summary.
 
 ## Anti-Patterns
 [One line each]
+
+## Related Skills
+[2-4 directional references to sibling skills with context on when/why to use them]
 ```
+
+### Category Field
+
+Every skill must declare a `category` in frontmatter. This groups skills for discoverability even though the `skills/` directory is flat. Valid categories: `harness-engineering`, `creativity`, `security`, `general-dev`.
+
+### Related Skills Section
+
+Add a `## Related Skills` section as the last section. Each entry should be directional — not just "see also" but when/why you'd go there next:
+
+```markdown
+## Related Skills
+
+- `harness-audit` — run an audit first to identify what your instructions are missing
+- `verification-harness` — enforce what your instructions specify with automated hooks
+```
+
+### Reference Files
+
+Put supporting material in a `references/` subdirectory within the skill directory, not alongside SKILL.md. Reference from SKILL.md with clear triggers: "Read `references/models.md` for current model recommendations."
 
 ### Keep files under 500 lines.
 Split reference material into separate files if needed. Don't nest references more than one level.

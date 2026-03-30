@@ -1,5 +1,6 @@
 ---
 name: commit-message
+category: general-dev
 description: Generate a conventional-commit message from staged changes. Use when asked to write a commit message or describe staged changes.
 disable-model-invocation: true
 ---
@@ -34,3 +35,7 @@ Use conventional commits:
 - If changes span multiple concerns, suggest splitting into separate commits
 - If the change is a single-line fix, a body is optional
 - Never include file lists in the body — the diff is the source of truth
+
+## Related Skills
+
+- `code-review` — review code before committing

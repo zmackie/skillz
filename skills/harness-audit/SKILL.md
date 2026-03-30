@@ -1,5 +1,6 @@
 ---
 name: harness-audit
+category: harness-engineering
 description: >
   Audit a coding agent's harness (instructions, context management, verification,
   codebase legibility) and surface problems with prioritized fixes. Use when
@@ -7,7 +8,8 @@ description: >
   when agent quality degrades, or as a starting point when no harness exists.
   Use this skill whenever the user mentions agent harness, agent configuration,
   CLAUDE.md review, AGENTS.md review, or wants to improve how agents work in
-  their codebase — even if they don't use the word "harness."
+  their codebase — even if they don't use the word "harness." Entry point for
+  the harness engineering workflow.
 ---
 
 # Harness Audit
@@ -162,3 +164,11 @@ Group under the five diagnostic areas. Omit areas where no problems were found.
 - Recommending multi-agent architecture before single-agent basics are solid
 - Suggesting complex context management when the instruction file is the real problem
 - Treating this as a one-time event — re-audit after major workflow changes
+
+## Related Skills
+
+- `write-agent-instructions` — create or restructure the instruction files this audit identifies as missing or problematic
+- `verification-harness` — set up the automated checks and hooks this audit recommends
+- `agent-legibility` — improve codebase organization for agent navigation
+- `context-architecture` — design context management when the audit identifies context exhaustion
+- `multi-agent-design` — design multi-agent workflows once single-agent basics are solid

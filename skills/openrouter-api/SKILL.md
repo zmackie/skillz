@@ -1,6 +1,9 @@
 ---
 name: openrouter-api
-description: Build LLM-powered features using OpenRouter. Use when integrating LLM calls, building AI features, or working with language model APIs.
+category: general-dev
+description: >
+  Build LLM-powered features using OpenRouter. Use when integrating LLM calls, building AI
+  features, or working with language model APIs. See `python-uv` for Python project setup.
 ---
 
 # OpenRouter API Integration
@@ -24,7 +27,7 @@ client = OpenAI(
 
 ```python
 response = client.chat.completions.create(
-    model="anthropic/claude-sonnet-4",  # or any model from models.md
+    model="anthropic/claude-sonnet-4",  # or any model from references/models.md
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": prompt},
@@ -47,9 +50,13 @@ for chunk in stream:
 ```
 
 ## Best Practices
-- Always read `models.md` in this skill directory for current model recommendations
+- Always read `references/models.md` in this skill directory for current model recommendations
 - Store `OPENROUTER_API_KEY` in environment, never in code
 - Add `--model` flag to CLIs so users can override the default model
 - Handle rate limits with exponential backoff
 - Log token usage when `--debug` is enabled
 - Use streaming for interactive/user-facing responses
+
+## Related Skills
+
+- `python-uv` — Python project conventions when building LLM-powered apps

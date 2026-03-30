@@ -1,12 +1,14 @@
 ---
 name: write-agent-instructions
+category: harness-engineering
 description: >
   Write or improve instruction files for coding agents (CLAUDE.md, AGENTS.md,
   .cursorrules, etc.). Use when creating a new agent instruction file, when
   agent output quality is inconsistent, when instructions are too long or
   too generic, or when onboarding a project to a new agent system. Use this
   skill whenever the user mentions CLAUDE.md, AGENTS.md, agent instructions,
-  agent rules, or system prompts for coding agents.
+  agent rules, or system prompts for coding agents. Part of the harness
+  engineering workflow; start with `harness-audit` for overall assessment.
 ---
 
 # Write Agent Instructions
@@ -158,3 +160,9 @@ When moving from one agent system to another (e.g., Cursor to Claude Code):
 - Including instructions that duplicate what linters or CI already enforce
 - Writing instructions for the human reader instead of the agent
 - Letting instruction files grow without periodic pruning — review quarterly
+
+## Related Skills
+
+- `harness-audit` — run an audit first to identify what your instructions are missing
+- `verification-harness` — enforce what your instructions specify with automated hooks
+- `agent-legibility` — make the codebase match what your instructions describe

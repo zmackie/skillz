@@ -1,15 +1,13 @@
 ---
 name: cross-domain-ideation
+category: creativity
 description: >
-  Generate novel ideas for software, cybersecurity, and research problems using cross-domain
-  analogical mapping — a scientifically-validated creativity technique that forces connections
-  between your problem and semantically distant domains (biology, physics, social systems, etc.)
-  to produce genuinely original solutions. Use this skill whenever the user wants to brainstorm
-  creatively, generate novel ideas, innovate on a product/system/process, explore unconventional
-  approaches, find fresh research angles, or asks for "creative ideas", "novel approaches",
-  "think outside the box", "innovation session", "brainstorm with analogies", "cross-domain
-  inspiration", "serendipity", or "what if we thought about this differently". Also use when
-  the user seems stuck in conventional thinking or wants thought-leadership-quality ideas.
+  Generate novel ideas using cross-domain analogical mapping — forcing connections between
+  your problem and semantically distant domains (biology, physics, social systems) to produce
+  genuinely original solutions. Use when brainstorming creatively, generating novel ideas,
+  exploring unconventional approaches, or when the user asks for "creative ideas", "think
+  outside the box", or "brainstorm with analogies". Part of the creativity workflow — feed
+  results into `idea-garden` or write them up with `vibe-research`.
 ---
 
 # Cross-Domain Ideation
@@ -192,3 +190,8 @@ canopy — layered, with the most light-hungry (critical) metrics at the top and
 **Embrace the weird.** The best ideas from the research came from the most surprising
 combinations. "Car + octopus" produced ideas rated 4.88/5 on originality. Lean into
 discomfort — if the mapping feels forced at first, you're probably on the right track.
+
+## Related Skills
+
+- `idea-garden` — feed generated ideas into the garden for autonomous prototyping
+- `vibe-research` — write up the best ideas as polished design docs or research artifacts

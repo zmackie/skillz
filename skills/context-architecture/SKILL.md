@@ -1,5 +1,6 @@
 ---
 name: context-architecture
+category: harness-engineering
 description: >
   Design context management for coding agents: sub-agent decomposition, context
   resets, progressive disclosure hierarchies, and artifact handoffs. Use when
@@ -7,6 +8,8 @@ description: >
   need to decompose complex workflows into isolated subtasks, or when setting up
   sub-agent patterns. Use this skill whenever the user mentions context windows,
   sub-agents, context management, agent memory, or long-running agent tasks.
+  Part of the harness engineering workflow; start with `harness-audit` for
+  overall assessment.
 ---
 
 # Context Architecture
@@ -178,3 +181,9 @@ Some agent systems offer context compaction (summarizing the conversation). This
 - Resetting context without writing a handoff artifact
 - Assuming bigger context windows eliminate the need for context management — attention degradation occurs regardless of window size
 - Nesting sub-agents more than two levels deep — returns diminish and coordination overhead increases
+
+## Related Skills
+
+- `harness-audit` — diagnose context issues before designing solutions
+- `multi-agent-design` — when context isolation leads to a full multi-agent architecture
+- `write-agent-instructions` — progressive disclosure requires well-structured root instructions

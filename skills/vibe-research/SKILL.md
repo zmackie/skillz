@@ -1,6 +1,13 @@
 ---
 name: vibe-research
-description: AI-accelerated research workflow for producing polished written artifacts (design docs, RFCs, investigation reports, analysis papers, technical evaluations) through multi-agent review loops. Use when the user wants to write a design doc, RFC, investigation report, analysis document, technical evaluation, competitive analysis, or any substantial written artifact that benefits from research and iteration. Also triggers for "write a doc about", "research X and write it up", "I need a design doc for", "draft an RFC", "write up my findings on", "vibe research", or when the user has a topic they want explored and documented thoroughly. Even if the user just says "I want to write about X" or "help me think through X as a document", this skill applies.
+category: creativity
+description: >
+  AI-accelerated research workflow for producing polished written artifacts (design docs,
+  RFCs, investigation reports, analysis papers) through multi-agent review loops. Use when
+  the user wants to write a design doc, RFC, investigation report, or any substantial written
+  artifact. Also triggers for "write a doc about", "research X and write it up", "draft an
+  RFC", "vibe research", or "help me think through X as a document". Part of the creativity
+  workflow — use to write up results from `idea-garden` or `cross-domain-ideation`.
 ---
 
 # Vibe Research
@@ -217,3 +224,8 @@ Create a workspace for review artifacts at `research/<slug>-workspace/` containi
 - `reviews/` — all review reports by round
 - `plan.md` — the approved outline from Phase 0
 - `verification.md` — the verification checklist results
+
+## Related Skills
+
+- `cross-domain-ideation` — generate novel angles for research topics before writing
+- `idea-garden` — research workflow for garden artifacts that graduate to "frozen"

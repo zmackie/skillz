@@ -1,6 +1,10 @@
 ---
 name: python-uv
-description: Python project conventions — uv package manager, click CLIs, pytest, type hints. Use when creating or modifying Python projects.
+category: general-dev
+description: >
+  Python project conventions — uv package manager, click CLIs, pytest, type hints. Use when
+  creating or modifying Python projects. See `verification-harness` for setting up pytest/mypy
+  hooks, and `openrouter-api` for LLM integration patterns.
 ---
 
 # Python Project Conventions
@@ -47,3 +51,8 @@ project-name/
 ## LLM Integration
 - Use OpenRouter (`openai` SDK pointed at `https://openrouter.ai/api/v1`) for LLM calls
 - Store API keys in environment variables, never hardcode
+
+## Related Skills
+
+- `verification-harness` — set up pytest/mypy hooks for Python projects
+- `openrouter-api` — LLM integration patterns when building AI-powered Python apps

@@ -1,6 +1,10 @@
 ---
 name: code-review
-description: Perform a structured code review covering security, performance, correctness, and readability. Use when asked to review code, check a PR, or audit a file.
+category: general-dev
+description: >
+  Perform a structured code review covering security, performance, correctness, and
+  readability. Use when asked to review code, check a PR, or audit a file. For deeper
+  security-focused analysis, see `vuln-research` instead.
 ---
 
 # Code Review
@@ -37,3 +41,8 @@ For each issue found, report:
 - **Fix**: Concrete recommendation
 
 End with a summary: total issues by severity, and an overall assessment (approve, approve with suggestions, or request changes).
+
+## Related Skills
+
+- `vuln-research` — for deeper security-focused analysis beyond standard code review
+- `commit-message` — after review, generate conventional-commit messages for fixes

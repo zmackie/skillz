@@ -1,5 +1,6 @@
 ---
 name: verification-harness
+category: harness-engineering
 description: >
   Set up automated verification and back-pressure for coding agents: hooks,
   linters, test runners, CI checks, and custom validators. Use when agent
@@ -7,7 +8,8 @@ description: >
   a new agent workflow, or when you want agents to self-correct based on
   feedback. Use this skill whenever the user mentions agent verification,
   hooks, back-pressure, agent quality checks, or automated feedback loops
-  for agents.
+  for agents. Part of the harness engineering workflow; start with
+  `harness-audit` for overall assessment.
 ---
 
 # Verification Harness
@@ -228,3 +230,8 @@ Don't set up everything at once. Add one layer, verify it helps, then add the ne
 - Custom linters that produce false positives — agents can't distinguish false positives from real errors
 - Verification that only runs in CI, giving agents no feedback during development
 - Checks that block without providing enough information to fix the issue
+
+## Related Skills
+
+- `harness-audit` — identify what verification is missing before building it
+- `write-agent-instructions` — hooks work best when they enforce what instructions specify

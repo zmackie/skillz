@@ -1,12 +1,14 @@
 ---
 name: agent-legibility
+category: harness-engineering
 description: >
   Optimize a codebase for agent readability: documentation structure, domain
   organization, discoverability, and knowledge capture. Use when agents struggle
   to find relevant code, when tribal knowledge lives outside the repo, when
   onboarding an agent to an existing codebase, or when restructuring docs for
   agent workflows. Use this skill whenever the user wants to make their codebase
-  easier for agents to navigate or understand.
+  easier for agents to navigate or understand. Part of the harness engineering
+  workflow; start with `harness-audit` for overall assessment.
 ---
 
 # Agent Legibility
@@ -158,3 +160,8 @@ If the agent still struggles, the documentation isn't providing what it needs �
 - Organizing docs by creation date or document type instead of by domain
 - Putting architectural knowledge only in diagrams or visual formats agents can't read
 - Assuming the agent will "figure it out" from reading the code — conventions that aren't explicit aren't discoverable
+
+## Related Skills
+
+- `harness-audit` — assess legibility gaps as part of a broader harness evaluation
+- `write-agent-instructions` — legibility and instruction quality go hand in hand

@@ -1,5 +1,6 @@
 ---
 name: multi-agent-design
+category: harness-engineering
 description: >
   Design multi-agent workflows for complex tasks: planner/generator/evaluator
   patterns, agent role definitions, sprint contracts, and handoff protocols.
@@ -7,7 +8,8 @@ description: >
   planning and implementation, when agent self-evaluation is unreliable, or when
   designing automated development pipelines. Use this skill whenever the user
   mentions multi-agent, agent pipelines, planner/builder/reviewer patterns,
-  or wants to decompose work across multiple agents.
+  or wants to decompose work across multiple agents. Part of the harness
+  engineering workflow; start with `harness-audit` for overall assessment.
 ---
 
 # Multi-Agent Design
@@ -232,3 +234,9 @@ As models improve, reassess. Remove agents whose contribution no longer justifie
 - Skipping evaluator calibration and trusting grades at face value
 - Designing evaluation criteria that test what models already do well instead of where they struggle
 - Adding more agents instead of improving instructions for existing ones
+
+## Related Skills
+
+- `harness-audit` — confirm single-agent is maxed out before going multi-agent
+- `context-architecture` — multi-agent is fundamentally a context management strategy
+- `verification-harness` — each agent in the pipeline needs its own verification
